@@ -1,0 +1,25 @@
+{
+  "name": "votehub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackathonTaiwan/VoteHub.git"
+  },
+  "author": "Fred Chien <cfsghost@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HackathonTaiwan/VoteHub/issues"
+  },
+  "homepage": "https://github.com/HackathonTaiwan/VoteHub#readme",
+  "dependencies": {
+    "koa": "^1.1.2",
+    "koa-router": "^5.3.0",
+    "koa-session": "^3.3.1",
+    "koa-static": "^1.5.2"
+  }
+}
