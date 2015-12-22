@@ -1,0 +1,7 @@
+.background {
+	min-height: 700px;
+	background-image: url('../images/vote-time.jpg');
+	background-repeat: no-repeat;
+	background-attachment: cover;
+    background-position: center center; 
+}

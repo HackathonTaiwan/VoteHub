@@ -1,46 +1,54 @@
 <html>
 	<head>
 		<title>總統大選・即將到來</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<link rel="stylesheet" href="styles/timer.css">
+		<link rel="stylesheet" href="styles/styles.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 		<script src="js/countdown.js"></script>
 	</head>
 	<body>
-		<div class="countdown-timer">
-			<div class="timer" id="day">60</div>
+		<div class="background">
+			<div class="row">
+				<div class="col-md-12">
+			<div class="countdown-timer">
+				<div class="timer" id="day">60</div>
 
-			<div class="circle-container">
-				<svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-					<g>
-						<circle
-							id="dayT"
-							class="circle_animation"
-							r="69.85699"
-							cy="81"
-							cx="81"
-							stroke-width="8"
-							stroke="#50d2c2"
-							fill="none"/>
-					</g>
-				</svg>
-			</div>
+				<div class="circle-container">
+					<svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+						<g>
+							<circle
+								id="dayT"
+								class="circle_animation"
+								r="69.85699"
+								cy="81"
+								cx="81"
+								stroke-width="8"
+								stroke="#50d2c2"
+								fill="none"/>
+						</g>
+					</svg>
+				</div>
 
-			<div class="timer" id="hour">24</div>
+				<div class="timer" id="hour">24</div>
 
-			<div class="circle-container">
-				<svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-					<g>
-						<circle
-							id="hourT"
-							class="circle_animation"
-							r="69.85699"
-							cy="81"
-							cx="81"
-							stroke-width="8"
-							stroke="#50d2c2"
-							fill="none"/>
-					</g>
-				</svg>
+				<div class="circle-container">
+					<svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+						<g>
+							<circle
+								id="hourT"
+								class="circle_animation"
+								r="69.85699"
+								cy="81"
+								cx="81"
+								stroke-width="8"
+								stroke="#50d2c2"
+								fill="none"/>
+						</g>
+					</svg>
+				</div>
 			</div>
 		</div>
 	</body>
