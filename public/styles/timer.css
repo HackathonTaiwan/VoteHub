@@ -1,0 +1,26 @@
+.countdown-timer {
+	font-family: Arial;
+	width: 160px;
+	height: 160px;
+	margin: 0 auto;
+	position: relative;
+}
+.countdown-timer .timer {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 3em;
+	color: #777;
+}
+.countdown-timer .circle-container {
+	transform: rotate(-90deg) rotate3d(1, 0, 0, 180deg);
+}
+
+.circle_animation {
+	stroke-dasharray: 443;
+	stroke-dashoffset: 0;
+	transition: all 1s linear;
+}
+
+
