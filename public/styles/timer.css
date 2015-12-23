@@ -1,3 +1,12 @@
+.countdown-timer-day {
+	font-family: Arial;
+	width: 240px;
+	height: 240px;
+	margin: 0 auto;
+	position: relative;
+	display: inline-block;
+}
+
 .countdown-timer {
 	font-family: Arial;
 	width: 160px;

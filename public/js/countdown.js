@@ -1,6 +1,6 @@
 
 $(function() {
-	var endT = new Date('12/26/2015').getTime();
+	var endT = new Date('12/26/2015 09:00').getTime();
 	var rings = {
 		'DAYS': { 
 			s: 86400000, // mseconds in a day,
@@ -23,9 +23,9 @@ $(function() {
 			max: 100
 		}
 	};
-	var r = 69.85699;
 
 	function setSpinnerProgress($circle, percentage) {
+		var r = $circle.attr('r');
 		var c = Math.PI * (r * 2);
 		var pct = percentage * c;
 
