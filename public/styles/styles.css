@@ -9,8 +9,9 @@ h3 {
 	min-height: 700px;
 	background-image: url('../images/vote-time.jpg');
 	background-repeat: no-repeat;
-	background-attachment: cover;
+	background-attachment: initial;
     background-position: center center;
+    background-size: cover;
     overflow: hidden;
 }
 .day {
@@ -34,5 +35,8 @@ h3 {
 	}
 	h1 {
 		font-size: 50px;
+	}
+	.background {
+		background-image: url('../images/vote-time-min.jpg');
 	}
 }
