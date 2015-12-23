@@ -1,58 +1,56 @@
 
 $(function() {
-	var i = 60;
 	var endT = new Date('12/26/2015').getTime();
-	var dayUnit = 86400000;
+	var rings = {
+		'DAYS': { 
+			s: 86400000, // mseconds in a day,
+			max: 365
+		},
+		'HOURS': {
+			s: 3600000, // mseconds per hour,
+			max: 24
+		},
+		'MINUTES': {
+			s: 60000, // mseconds per minute
+			max: 60
+		},
+		'SECONDS': {
+			s: 1000,
+			max: 60
+		},
+		'MICROSEC': {
+			s: 10,
+			max: 100
+		}
+	};
+	var r = 69.85699;
 
 	function setSpinnerProgress($circle, percentage) {
-		var r = 69.85699;
-		var c = Math.PI*(r*2);
-		var pct = percentage*c;
+		var c = Math.PI * (r * 2);
+		var pct = percentage * c;
 
 		$circle.css({ strokeDashoffset: pct });
 	}
 
-	var duration = endT - Date.now();
-	var totalDay = Math.floor(duration / dayUnit) + 1;
-	var day = Math.floor(duration / dayUnit) + 1;
-	function updateDay() {
-		if (day == 0)
-			return;
+	var duration;
 
-		day--;
+	function updateRing(key) {
+		var v = Math.floor(duration / rings[key].s);
+		var dur = rings[key].s * v;
 
-		$('#day').html(day);
-		setSpinnerProgress($('#dayT'), day / duration);
+		duration -= dur;
+
+		$('#' + key).html(v);
+		setSpinnerProgress($('#' + key + 'T'), (rings[key].max - v) / rings[key].max);
 	}
-	setInterval(updateDay, dayUnit);
-	updateDay();
-
+	
 	setInterval(function() {
+		duration = endT - new Date().getTime();
 
-		/*
-		i--;
-		if (i < 0) {
-			i = 60;
-		}
-		*/
-	/*
-		var $circle = $('.circle_animation');
-		var r = 69.85699;
-		var c = Math.PI*(r*2);
-
-		console.log('C: ' + c);
-
-		console.log('i: ' + i);
-		console.log((60-i)/60);
-
-		var pct = ((60-i)/60)*c;
-
-		console.log('PCT: ' + pct);
-	*/
-	//	$('.timer').html(i);
-
-	//	$circle.css({ strokeDashoffset: pct});
-	//	setSpinnerProgress($('.circle_animation'), (60 - i) / 60);
-
-	}, 1000);
+		updateRing('DAYS');
+		updateRing('HOURS');
+		updateRing('MINUTES');
+		updateRing('SECONDS');
+		updateRing('MICROSEC');
+	}, 16);
 });

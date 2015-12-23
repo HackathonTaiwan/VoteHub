@@ -6,14 +6,16 @@
 	position: relative;
 	display: block;
 }
+
 .countdown-timer .timer {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	font-size: 3em;
+	font-size: 4em;
 	color: #777;
 }
+
 .countdown-timer .circle-container {
 	transform: rotate(-90deg) rotate3d(1, 0, 0, 180deg);
 }
@@ -21,7 +23,11 @@
 .circle_animation {
 	stroke-dasharray: 443;
 	stroke-dashoffset: 0;
-	transition: all 1s linear;
+	transition: all 0.6s ease-out;
 }
 
-
+.circle_msec_animation {
+	stroke-dasharray: 443;
+	stroke-dashoffset: 0;
+	transition: all 0.01s linear;
+}
