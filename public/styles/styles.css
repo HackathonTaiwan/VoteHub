@@ -1,5 +1,8 @@
 h1 {
-	font-size: 60px;
+	font-size: 50px;
+}
+h3 {
+	font-size: 20px;
 }
 .background {
 	margin-top: 1%;
@@ -19,6 +22,9 @@ h1 {
 }
 .hour {
 	margin-left: 13%;
+}
+.count-title {
+	padding: 20px 0; 
 }
 @media (max-width: 650px) {
 	.day {
