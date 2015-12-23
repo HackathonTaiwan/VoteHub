@@ -1,3 +1,4 @@
+var path = require('path');
 var crypto = require('crypto');
 var koa = require('koa');
 var session = require('koa-session');

@@ -2,6 +2,7 @@ h1 {
 	font-size: 60px;
 }
 .background {
+	margin-top: 1%;
 	min-height: 700px;
 	background-image: url('../images/vote-time.jpg');
 	background-repeat: no-repeat;
@@ -10,10 +11,10 @@ h1 {
     overflow: hidden;
 }
 .day {
-	margin-top: 12%;
 	margin-left: 40%;
 }
 .timer-box {
+	margin-top: 3%;
 	padding-left: 3.2%;
 }
 .hour {
