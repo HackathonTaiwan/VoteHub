@@ -17,14 +17,13 @@ h3 {
 	margin-left: 40%;
 }
 .timer-box {
-	margin-top: 3%;
 	padding-left: 3.2%;
 }
 .hour {
 	margin-left: 13%;
 }
 .count-title {
-	padding: 20px 0; 
+	padding: 20px 0;
 }
 @media (max-width: 650px) {
 	.day {
