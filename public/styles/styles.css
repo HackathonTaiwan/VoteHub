@@ -1,3 +1,6 @@
+h1 {
+	font-size: 60px;
+}
 .background {
 	min-height: 700px;
 	background-image: url('../images/vote-time.jpg');
@@ -5,6 +8,24 @@
 	background-attachment: cover;
     background-position: center center; 
 }
-.title {
-	margin-top: 260px;
+.day {
+	margin-top: 12%;
+	margin-left: 40%;
+}
+.timer-box {
+	padding-left: 3.2%;
+}
+.hour {
+	margin-left: 13%;
+}
+@media (max-width: 650px) {
+	.day {
+		margin-left: 28%;
+	}
+	.hour {
+		margin-left: 28%;
+	}
+	h1 {
+		font-size: 50px;
+	}
 }
