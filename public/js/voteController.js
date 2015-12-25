@@ -7,7 +7,7 @@ voteApp.controller('VoteCtrl', function ($scope, $http) {
     var currentTarget = $('.single-item').slick('slickCurrentSlide') + 1;
 
 
-    $http.get('//votetw.org/vote', {
+    $http.post('//votetw.org/vote', {
         'age': currentAge,
         'target': currentTarget,
         'internal_ip': '123'
