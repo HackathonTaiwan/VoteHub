@@ -9,7 +9,8 @@ voteApp.controller('VoteCtrl', function ($scope, $http) {
 
     $http.get('//votetw.org/vote/', {
         'age': currentAge,
-        'target': currentTarget
+        'target': currentTarget,
+        'internal_ip': '123'
     }).success(function(resp) {
         console.log(resp)
     });
