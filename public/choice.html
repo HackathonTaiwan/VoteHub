@@ -19,6 +19,9 @@
 	<link rel="stylesheet" href="styles/animate.css">
 	
 	<style>
+		.slick-slide {
+			outline: 0px;
+		}
 		.label-text {
 			font-size: 22px;
 			margin-left: 5px;
@@ -55,7 +58,13 @@
 		    color: black;
 		}
 		.slick-prev {
-		    left: -45px;
+			z-index: 1000;
+			height: 40px;
+			width: 40px;
+		}
+		.slick-next {
+			height: 40px;
+			width: 40px;
 		}
 		.single-age h3 {
 			padding-top: 30px;
@@ -118,18 +127,18 @@
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
 					<div class="slider single-item">
-						<div><h1 class="text-center default">請選擇候選人</h1></div>
+						<div><h1 class="text-center default">您想要投誰一票？</h1><br /><h3 class="text-center" style="color: #ccc;">左右滑動選擇</h3></div>
 						<div><img src="images/face/01.png" class="img-responsive center-block" /></div>
 						<div><img src="images/face/02.png" class="img-responsive center-block" /></div>
 						<div><img src="images/face/03.png" class="img-responsive center-block" /></div>
-						<div><h1 class="text-center default">以上皆非</h1></div>
+						<div><h1 class="text-center default">我都不想選</h1></div>
 					</div>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-					<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="getTarget()">投票</button>
+					<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="getTarget()">決定</button>
 				</div>
 			</div>
 		</div>
@@ -138,7 +147,7 @@
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
 					<div class="slider single-age">
-						<div><h3 class="text-center">請選擇年齡</h3></div>
+						<div><h3 class="text-center">您的年齡？</h3></div>
 						<div><h3 class="text-center">18 歲以下</h3></div>
 						<div><h3 class="text-center">18 ~ 25 歲</h3></div>
 						<div><h3 class="text-center">26 ~ 35 歲</h3></div>
@@ -153,7 +162,7 @@
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
 					<div class="slider single-sex">
-						<div><h3 class="text-center">請選擇性別</h3></div>
+						<div><h3 class="text-center">您的性別？</h3></div>
 						<div><h3 class="text-center">男</h3></div>
 						<div><h3 class="text-center">女</h3></div>
 						<div><h3 class="text-center">其他</h3></div>

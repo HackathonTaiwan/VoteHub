@@ -61,6 +61,11 @@ router.post('/vote', function *() {
 	var age = this.request.body.age || 0;
 	var sex = this.request.body.sex || 0;
 
+	// wait 3 secs for stopping robot
+	yield function(done) {
+		setTimeout(done, 3000);
+	;}
+
 	try {
 		yield function(done) {
 			dbConn.query('INSERT INTO `votes` SET ?', {
@@ -75,11 +80,6 @@ router.post('/vote', function *() {
 			}, done);
 		};
 	} catch(e) {}
-
-	// wait 3 secs for stopping robot
-	yield function(done) {
-		setTimeout(done, 3000);
-	;}
 
 	this.body = {};
 });
