@@ -21,7 +21,10 @@ voteApp.controller('VoteCtrl', function ($scope, $http) {
     var currentAge = $('.single-age').slick('slickCurrentSlide') + 1;
     var currentSex = $('.single-sex').slick('slickCurrentSlide') + 1;
 
-    if (currentAge == 1 || currentSex == 1) {
+    if (currentAge == 1) {
+      return;
+    }
+    if (currentSex == 1) {
       return;
     }
 
