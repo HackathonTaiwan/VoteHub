@@ -6,13 +6,16 @@ voteApp.controller('VoteCtrl', function ($scope, $http) {
     var currentAge = $('.single-age').slick('slickCurrentSlide') + 1;
     var currentTarget = $('.single-item').slick('slickCurrentSlide') + 1;
 
-
     $http.post('//votetw.org/vote', {
         'age': currentAge,
         'target': currentTarget,
         'internal_ip': '123'
     }).success(function(resp) {
-        console.log(resp)
+        console.log('success');
+        $scope.success = true;
+    }).error(function(resp) {
+        console.log('error');
+        $scope.error = true;
     });
   };
   

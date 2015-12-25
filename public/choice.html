@@ -70,34 +70,47 @@
 </head>
 <body ng-app="voteApp">
 	<div class="container" ng-controller="VoteCtrl">
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-				<div class="slider single-age">
-					<div><h3 class="text-center">請選擇年齡</h3></div>
-					<div><h3 class="text-center">18 歲以下</h3></div>
-					<div><h3 class="text-center">18 ~ 25 歲</h3></div>
-					<div><h3 class="text-center">26 ~ 35 歲</h3></div>
-					<div><h3 class="text-center">36 ~ 45 歲</h3></div>
-					<div><h3 class="text-center">46 ~ 55 歲</h3></div>
-					<div><h3 class="text-center">56 ~ 65 歲</h3></div>
-					<div><h3 class="text-center">65 歲以上</h3></div>
+		<div ng-show="!success && !error">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+					<div class="slider single-age">
+						<div><h3 class="text-center">請選擇年齡</h3></div>
+						<div><h3 class="text-center">18 歲以下</h3></div>
+						<div><h3 class="text-center">18 ~ 25 歲</h3></div>
+						<div><h3 class="text-center">26 ~ 35 歲</h3></div>
+						<div><h3 class="text-center">36 ~ 45 歲</h3></div>
+						<div><h3 class="text-center">46 ~ 55 歲</h3></div>
+						<div><h3 class="text-center">56 ~ 65 歲</h3></div>
+						<div><h3 class="text-center">65 歲以上</h3></div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-				<div class="slider single-item">
-					<div><h3 class="text-center default">請選擇候選人</h3></div>
-					<div><img src="images/face/01.png" class="img-responsive center-block" /></div>
-					<div><img src="images/face/02.png" class="img-responsive center-block" /></div>
-					<div><img src="images/face/03.png" class="img-responsive center-block" /></div>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+					<div class="slider single-item">
+						<div><h3 class="text-center default">請選擇候選人</h3></div>
+						<div><img src="images/face/01.png" class="img-responsive center-block" /></div>
+						<div><img src="images/face/02.png" class="img-responsive center-block" /></div>
+						<div><img src="images/face/03.png" class="img-responsive center-block" /></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+					<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="submitVote()">投票</button>
 				</div>
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-				<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="submitVote()">投票</button>
+		<div class="row" ng-show="success">
+			<div class="col-md-12">
+				<h1>投票成功！</h1>
+			</div>
+		</div>
+		<div class="row" ng-show="error">
+			<div class="col-md-12">
+				<h1>投票失敗！</h1>
 			</div>
 		</div>
 	</div>
