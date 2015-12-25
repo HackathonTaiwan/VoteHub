@@ -8,9 +8,11 @@ voteApp.controller('VoteCtrl', function ($scope, $http) {
     $scope.currentTarget = $('.single-item').slick('slickCurrentSlide') + 1;
     $('.single-age').get(0).slick.setPosition();
     $scope.dataClass = 'show-data';
+    $scope.status = '';
   };
 
   $scope.submitVote = function() {
+    $scope.dataClass = 'hide';
     $scope.status = 'loading';
     var currentAge = $('.single-age').slick('slickCurrentSlide') + 1;
     var currentSex = $('.single-sex').slick('slickCurrentSlide') + 1;
