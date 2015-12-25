@@ -1,3 +1,4 @@
+var fs = require('fs');
 var path = require('path');
 var crypto = require('crypto');
 var koa = require('koa');
@@ -12,9 +13,6 @@ var dbConn = mysql.createConnection(require('./db.json'));
 dbConn.connect();
 
 var app = koa();
-
-// Static file path
-app.use(serve(path.join(__dirname, 'public'), { hidden: true }));
 
 app.use(bodyParser());
 
@@ -34,12 +32,22 @@ app.use(function *(next) {
 
 // Routes
 var router = new Router();
-router.get('/xxx', function *() {
-var u = this.request.header['user-agent'];
-console.log(this.request);
-	this.body = 'Hi'
-});
 
+var votePage = path.join(__dirname, 'public', 'choice.html');
+var pageType = path.extname(votePage);
+var pageBody = fs.createReadStream(votePage);
+var startT = new Date('12/26/2015 09:00').getTime();
+var endT = new Date('12/26/2015 16:00').getTime();
+router.get('/', function *(next) {
+	var now = Date.now();
+	if (startT <= now && endT >= now) {
+		this.type = pageType;
+		this.body = pageBody;
+	} else {
+		yield next;
+	}
+});
+/*
 router.get('/databasekk', function *() {
 	try {
 		var rows = yield function(done) {
@@ -49,7 +57,7 @@ router.get('/databasekk', function *() {
 		this.body = rows;
 	} catch(e) {}
 });
-
+*/
 router.post('/vote', function *() {
 	var parser = new UAParser(this.request.header['user-agent']);
 
@@ -84,6 +92,9 @@ router.post('/vote', function *() {
 	this.body = {};
 });
 app.use(router.middleware());
+
+// Static file path
+app.use(serve(path.join(__dirname, 'public'), { hidden: true }));
 
 app.listen(6001, function() {
 	console.log('server is running at port', 6001);
