@@ -6,10 +6,29 @@
 	<title>Hackathon Taiwan Vote</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<style>
+		body {
+			background-image: url('images/vote-bg.jpg');
+			background-repeat: no-repeat;
+			background-attachment: initial;
+		    background-position: top center;
+		    background-size: cover;
+		}
+		.container {
+			padding-top: 60px;
+			margin-bottom: 50px;
+			margin-top: 40px;
+			background-color: rgba(255, 255, 255, 0.9);
+		}
+		@media (max-width: 650px) {
+			.container {
+				margin: 0;
+			}
+		}
+	</style>
 </head>
-<body ng-app="voteApp">
-	<div class="container" ng-controller="VoteController" style="margin-top: 80px;">
+<body>
+	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="row">
