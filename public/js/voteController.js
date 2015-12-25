@@ -25,14 +25,9 @@ voteApp.controller('VoteCtrl', function ($scope, $http) {
     if (currentSex == 1) {
       return;
     }
-    
+
     $scope.dataClass = 'hide';
     $scope.status = 'loading';
-
-
-console.log(currentAge)
-console.log(currentSex)
-
 
     $http.post('//votetw.org/vote', {
         'target': $scope.currentTarget,
