@@ -59,6 +59,7 @@ router.post('/vote', function *() {
 	var browser = parser.getBrowser().name + ' ' + parser.getBrowser().version;
 	var target = this.request.body.target || 0;
 	var age = this.request.body.age || 0;
+	var sex = this.request.body.sex || 0;
 
 	try {
 		yield function(done) {
@@ -69,6 +70,7 @@ router.post('/vote', function *() {
 				browser: browser,
 				target: target,
 				age: age,
+				gender: sex,
 				user_agent: this.request.header['user-agent'] || ''
 			}, done);
 		};
