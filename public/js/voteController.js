@@ -16,8 +16,6 @@ voteApp.controller('VoteCtrl', function ($scope, $http) {
   };
 
   $scope.submitVote = function() {
-    $scope.dataClass = 'hide';
-    $scope.status = 'loading';
     var currentAge = $('.single-age').slick('slickCurrentSlide') + 1;
     var currentSex = $('.single-sex').slick('slickCurrentSlide') + 1;
 
@@ -27,6 +25,14 @@ voteApp.controller('VoteCtrl', function ($scope, $http) {
     if (currentSex == 1) {
       return;
     }
+    
+    $scope.dataClass = 'hide';
+    $scope.status = 'loading';
+
+
+console.log(currentAge)
+console.log(currentSex)
+
 
     $http.post('//votetw.org/vote', {
         'target': $scope.currentTarget,
