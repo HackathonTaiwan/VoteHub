@@ -3,6 +3,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta property="og:image" content="http://i.imgur.com/kbiQb7w.jpg"/>
+	<meta property="og:site_name" content="文化布"/>
+	<meta property="og:title" content="發揮創客精神 選總統也可自己來・Vote for Fun !"/>
+	<meta property="og:type" content="article"/>
 	<title>選擇年齡及候選人</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -11,6 +15,8 @@
 	<link href="http://cdn.jsdelivr.net/semantic-ui/2.1.6/semantic.min.css" media="all" rel="stylesheet" type="text/css">
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css" media="all" rel="stylesheet" type="text/css">
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css" media="all" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="styles/animate.css">
 	
 	<style>
 		.label-text {
@@ -27,23 +33,39 @@
 		    background-position: top center;
 		    background-size: cover;
 		}
+		.no-display {
+			display: none;
+		}
 		.container {
 			padding-top: 60px;
 			padding-bottom: 60px;
 			margin-top: 10px;
 			margin-bottom: 20px;
 		}
-		.single-item h3 {
-			padding-top: 30px;
-			padding-bottom: 30px;
+		.single-item h1 {
+			padding-top: 50px;
 		}
 		.single-age h3 {
 			padding-top: 30px;
 			padding-bottom: 30px;
 			background-color: white;
 		}
+		.single-sex h3 {
+			margin-top: 20px;
+			padding-top: 30px;
+			padding-bottom: 30px;
+			background-color: white;
+		}
 		.single-item .default {
 			margin-top: 70px;
+		}
+		.hide-data {
+			position: relative;
+			top: -2000px;
+		}
+		.show-data {
+			position: relative;
+			top: 80px;
 		}
 		@media (max-width: 700px) {
 			.container {
@@ -63,14 +85,35 @@
 
 	<script>
 		$(function() {
-			$('.single-age').slick();
 			$('.single-item').slick();
+			$('.single-age').slick();
+			$('.single-sex').slick();
 		});
 	</script>
 </head>
 <body ng-app="voteApp">
 	<div class="container" ng-controller="VoteCtrl">
-		<div ng-show="!success && !error">
+		<div ng-show="status === 'default'">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+					<div class="slider single-item">
+						<div><h1 class="text-center default">請選擇候選人</h1></div>
+						<div><img src="images/face/01.png" class="img-responsive center-block" /></div>
+						<div><img src="images/face/02.png" class="img-responsive center-block" /></div>
+						<div><img src="images/face/03.png" class="img-responsive center-block" /></div>
+						<div><h1 class="text-center default">以上皆非</h1></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+					<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="getTarget()">投票</button>
+				</div>
+			</div>
+		</div>
+
+		<div ng-class="dataClass">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
 					<div class="slider single-age">
@@ -85,32 +128,40 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-					<div class="slider single-item">
-						<div><h3 class="text-center default">請選擇候選人</h3></div>
-						<div><img src="images/face/01.png" class="img-responsive center-block" /></div>
-						<div><img src="images/face/02.png" class="img-responsive center-block" /></div>
-						<div><img src="images/face/03.png" class="img-responsive center-block" /></div>
+					<div class="slider single-sex">
+						<div><h3 class="text-center">請選擇性別</h3></div>
+						<div><h3 class="text-center">男</h3></div>
+						<div><h3 class="text-center">女</h3></div>
+						<div><h3 class="text-center">其他</h3></div>
 					</div>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-					<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="submitVote()">投票</button>
+					<button type="button" class="btn btn-primary btn-lg btn-block" ng-click="submitVote()">送出</button>
 				</div>
 			</div>
 		</div>
 
-		<div class="row" ng-show="success">
-			<div class="col-md-12">
-				<h1>投票成功！</h1>
+		<div class="row" ng-show="status === 'loading'">
+			<div class="col-md-2 col-md-offset-5 col-sm-2 col-sm-offset-5  col-xs-4 col-xs-offset-4">
+				<i class="fa fa-spinner fa-pulse" style="color: #ff9900; margin-top: 80px; font-size: 56px;"></i>
+				<br />
+				<h4 style="margin-left: -10px;">系統處理中...</h4>
 			</div>
 		</div>
-		<div class="row" ng-show="error">
+		<div class="row" ng-show="status === 'success'">
 			<div class="col-md-12">
-				<h1>投票失敗！</h1>
+				<h1 class="text-center animated bounce" style="margin-top: 100px; font-size: 46px;">投票成功！</h1>
+			</div>
+		</div>
+		<div class="row" ng-show="status === 'error'">
+			<div class="col-md-12">
+				<h1 class="text-center animated wobble" style="margin-top: 100px; font-size: 46px;">網路連線失敗！</h1>
 			</div>
 		</div>
 	</div>
