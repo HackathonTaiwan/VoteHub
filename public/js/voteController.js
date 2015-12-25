@@ -6,7 +6,11 @@ voteApp.controller('VoteCtrl', function ($scope, $http) {
 
   $scope.getTarget = function() {
     $scope.currentTarget = $('.single-item').slick('slickCurrentSlide') + 1;
-    $('.single-age').get(0).slick.setPosition();
+
+    if ($scope.currentTarget == 1) {
+      return;
+    }
+    
     $scope.dataClass = 'show-data';
     $scope.status = '';
   };
@@ -16,7 +20,11 @@ voteApp.controller('VoteCtrl', function ($scope, $http) {
     $scope.status = 'loading';
     var currentAge = $('.single-age').slick('slickCurrentSlide') + 1;
     var currentSex = $('.single-sex').slick('slickCurrentSlide') + 1;
-    
+
+    if (currentAge == 1 || currentSex == 1) {
+      return;
+    }
+
     $http.post('//votetw.org/vote', {
         'target': $scope.currentTarget,
         'age': currentAge,
