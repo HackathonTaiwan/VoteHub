@@ -40,13 +40,23 @@ console.log(this.request);
 	this.body = 'Hi'
 });
 
+router.get('/databasekk', function *() {
+	try {
+		var rows = yield function(done) {
+			dbConn.query('SELECT * from `votes`', done);
+		};
+
+		this.body = rows;
+	} catch(e) {}
+});
+
 router.post('/vote', function *() {
 	var parser = new UAParser(this.request.header['user-agent']);
 
 	var ip = this.request.header['x-forwarded-for'];
-	var os = parser.getOS().name + parser.getOS().version;
+	var os = parser.getOS().name + ' ' + parser.getOS().version;
 	var internal_ip = this.request.body.internal_ip || '';
-	var browser = parser.getBrowser().name + parser.getBrowser().version;
+	var browser = parser.getBrowser().name + ' ' + parser.getBrowser().version;
 	var target = this.request.body.target || 0;
 	var age = this.request.body.age || 0;
 
