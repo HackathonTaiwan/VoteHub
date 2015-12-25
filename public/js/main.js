@@ -4,7 +4,7 @@ $(document).ready(function() {
 				fontFamily: "Montserrat",
 				colorBg: "#66b2ff",
 				colorFg: "#0066cc",
-				width: Math.min($(window).width()/1.3, 2600),
+				width: Math.min($(window).width()/1.8, 2600),
 				onClick: function(event) {
 						console.log("onClick");
 						$(this).ElasticProgress("open");
@@ -15,6 +15,7 @@ $(document).ready(function() {
 				},
 				onComplete: function(event) {
 						console.log("onComplete");
+						$( "#first" ).html( "<h1> 2,000 票</h1>" );
 				},
 				onClose: function(event) {
 						console.log("onClose");
@@ -34,7 +35,7 @@ $(document).ready(function() {
 				fontFamily: "Montserrat",
 				colorBg: "#adeca8",
 				colorFg: "#669900",
-				width: Math.min($(window).width()/1.3, 2600),
+				width: Math.min($(window).width()/1.8, 2600),
 				onClick: function(event) {
 						console.log("onClick");
 						$(this).ElasticProgress("open");
@@ -45,6 +46,7 @@ $(document).ready(function() {
 				},
 				onComplete: function(event) {
 						console.log("onComplete");
+						$( "#second" ).html( "<h1> 2,300 票</h1>" );
 				},
 				onClose: function(event) {
 						console.log("onClose");
@@ -64,7 +66,7 @@ $(document).ready(function() {
 				fontFamily: "Montserrat",
 				colorBg: "#ffd11a",
 				colorFg: "#ff751a",
-				width: Math.min($(window).width()/1.3, 2600),
+				width: Math.min($(window).width()/1.8, 2600),
 				onClick: function(event) {
 						console.log("onClick");
 						$(this).ElasticProgress("open");
@@ -75,6 +77,7 @@ $(document).ready(function() {
 				},
 				onComplete: function(event) {
 						console.log("onComplete");
+						$( "#third" ).html( "<h1> 2,100 票</h1>" );
 				},
 				onClose: function(event) {
 						console.log("onClose");
@@ -122,7 +125,7 @@ $(document).ready(function() {
 										return;
 								}
 						}
-						v += Math.pow(Math.random(), 2) * 0.1 * speed;
+						v += Math.pow(Math.random(), 55) * 0.1 * speed;
 
 						if (typeof $obj.jquery != "undefined") {
 								$obj.ElasticProgress("setValue", v);
