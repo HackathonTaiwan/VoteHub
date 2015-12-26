@@ -35,7 +35,7 @@ var router = new Router();
 
 var votePage = path.join(__dirname, 'public', 'choice.html');
 var pageType = path.extname(votePage);
-var pageBody = fs.createReadStream(votePage);
+var pageBody = fs.readFileSync(votePage);
 var startT = new Date('12/26/2015 09:00').getTime();
 var endT = new Date('12/26/2015 16:00').getTime();
 router.get('/', function *(next) {
